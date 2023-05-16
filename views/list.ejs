@@ -1,0 +1,30 @@
+<%- include("header") -%>
+    <!-- scriplet tag @ ejs.co -->
+
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+    </div>
+    
+    <div class="box">
+        <% for( var i = 0; i < newListItems.length; i++) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+
+            <form action="/deleteItem" method="post">
+              <button type="submit" name="deleteButton" value= "<%= listTitle %>">x</button>
+            </form>
+        </div>
+        <% } %>
+
+
+        <form class="" action="/" method="post">
+            <input type="text" name="todolist-item" placeholder="Enter to do item" autocomplete="off"/>
+            <button type="submit" name="list" value= "<%= listTitle %>" >+</button>
+          </form>
+    </div>
+
+    <%- include("footer") -%>
+    
+
+
